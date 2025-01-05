@@ -1,0 +1,180 @@
+/* Основной контейнер */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--color-white);
+}
+
+/* Шапка */
+.header {
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-size: var(--h1-size);
+    color: var(--color-pink);
+    text-decoration: none;
+    font-family: var(--font-heading);
+}
+
+/* Основной контент */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Заголовок */
+.title-block {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    letter-spacing: 0.04em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+}
+
+.title--large {
+    font-size: 4rem; /* 64px / 16px = 4rem */
+}
+
+.title--large span {
+    display: block;
+}
+
+/* Блок навыков */
+.skills-block {
+    align-self: flex-end;
+    text-align: right;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.skills-title {
+    font-family: var(--font-heading);
+    font-size: var(--h1-size);
+    color: var(--color-black);
+    margin-bottom: 2rem;
+}
+
+.skills-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    position: relative;
+}
+
+.skill-item {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.skill-item--big {
+    transform: rotate(10deg);
+}
+
+.skill-item--small {
+    transform: rotate(-5deg);
+}
+
+/* Добавим случайные повороты для каждого элемента */
+.skill-item:nth-child(1) { transform: rotate(10deg); }
+.skill-item:nth-child(2) { transform: rotate(-8deg); }
+.skill-item:nth-child(3) { transform: rotate(5deg); }
+.skill-item:nth-child(4) { transform: rotate(-12deg); }
+.skill-item:nth-child(5) { transform: rotate(7deg); }
+.skill-item:nth-child(6) { transform: rotate(-5deg); }
+
+/* Добавим эффект при наведении */
+.skill-item:hover {
+    transform: scale(1.1) rotate(0deg);
+    z-index: 1;
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: auto;
+}
+
+.nav-folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.folder-icon {
+    width: 100px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.nav-folder span {
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    font-size: var(--p-size);
+    letter-spacing: 0.04em;
+}
+
+/* Ховер эффекты */
+.nav-folder:hover .folder-icon {
+    content: url('../media_portfolio/IMG_NAV_BUTTON_HOVER.png');
+}
+
+.nav-folder:active .folder-icon {
+    content: url('../media_portfolio/IMG_NAV_BUTTON_ACTIVE.png');
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-block {
+        align-self: center;
+        text-align: center;
+    }
+
+    .skills-items {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .title--large {
+        font-size: 3rem; /* 48px */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .skills-items {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+    }
+
+    .title--large {
+        font-size: 2.5rem; /* 40px */
+    }
+} 

@@ -1,0 +1,140 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --color-black: #1C1C1A;
+    --color-pink: #E577A5;
+    --color-gray: #D4D4D4;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-heading: 'Gasoek One', sans-serif;
+    --font-accent: 'Gloria Hallelujah', cursive;
+}
+
+/* Typography responsive styles */
+@media screen and (min-width: 1024px) {
+    :root {
+        --h1-size: 2.5rem;    /* 40px */
+        --h2-size: 2rem;      /* 32px */
+        --h3-size: 1.5rem;    /* 24px */
+        --p-size: 0.875rem;   /* 14px */
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    :root {
+        --h1-size: 2rem;      /* 32px */
+        --h2-size: 1.75rem;   /* 28px */
+        --h3-size: 1.375rem;  /* 22px */
+        --p-size: 0.875rem;   /* 14px */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --h1-size: 1.75rem;   /* 28px */
+        --h2-size: 1.5rem;    /* 24px */
+        --h3-size: 1.25rem;   /* 20px */
+        --p-size: 0.75rem;    /* 12px */
+    }
+}
+
+/* Utility classes */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.transition-default {
+    transition: all 0.3s ease;
+}
+
+/* Logo styles */
+.logo {
+    font-family: var(--font-heading);
+    color: var(--color-pink);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    -webkit-text-stroke: 1px var(--color-pink);
+    color: transparent;
+}
+
+.logo:active {
+    -webkit-text-stroke: 1px var(--color-gray);
+    background-color: var(--color-gray);
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+    gap: 2rem;
+    margin-top: auto;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Адаптивная типография */
+@media (min-width: 1024px) {
+    h1 { font-size: 40px; }
+    h2 { font-size: 32px; }
+    h3 { font-size: 24px; }
+    p { font-size: 14px; }
+}
+
+@media (max-width: 1023px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 22px; }
+    p { font-size: 14px; }
+}
+
+@media (max-width: 767px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    p { font-size: 12px; }
+}
+
+/* Typography */
+.font-accent {
+    font-family: var(--font-accent);
+    letter-spacing: 0.04em;
+}
+
+/* Или можно добавить через селектор */
+[style*="Gloria Hallelujah"], 
+.gloria-hallelujah {
+    letter-spacing: 0.04em;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+} 
