@@ -273,6 +273,53 @@
         margin-top: auto;
         padding-top: 2rem;
     }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 14rem;
+    }
+
+    .project {
+        max-width: 200px; /* Больше размер для планшетов */
+    }
+
+    .project-image {
+        width: 140%;
+    }
+
+    .components {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 3rem;
+    }
+
+    .component {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .component-content {
+        flex: 1;
+    }
+
+    /* Центральный компонент с графиком */
+    .component:nth-child(2) {
+        justify-content: center;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .graph-image {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -369,6 +416,32 @@
         align-items: center;
         margin-top: 2rem;
     }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 14rem;
+    }
+
+    .project {
+        max-width: 170px; /* Средний размер */
+    }
+
+    .project-image {
+        width: 100%;
+    }
+
+    .component {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .component:nth-child(2) {
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -431,6 +504,23 @@
     .nav-folder span {
         font-size: 0.75rem;
     }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 14rem;
+    }
+
+    .project {
+        max-width: 140px; /* Маленький размер */
+    }
+
+    .project-image {
+        width: 80%;
+    }
 }
 
 @media (max-width: 360px) {
@@ -461,6 +551,14 @@
     .skills-title {
         text-align: left;
         margin-bottom: 2.5rem;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 1rem;
+    }
+
+    .project {
+        max-width: 120px;
     }
 }
 
@@ -551,5 +649,268 @@
     
     .skill-item:nth-child(6) { 
         animation: floatHorizontal 4s ease-in-out infinite 2.5s;
+    }
+}
+
+/* Стили для страницы works */
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    color: var(--color-black);
+    margin-bottom: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.header-text {
+    text-align: right;
+    color: var(--color-pink);
+    font-family: var(--font-accent);
+    font-size: 1.2rem;
+}
+
+.header-text p {
+    margin: 0.5rem 0;
+}
+
+/* Компоненты */
+.components {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.component {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.component-title {
+    font-family: var(--font-accent);
+    color: var(--color-purple);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.role {
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid var(--color-black);
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    font-family: var(--font-accent);
+    color: var(--color-black);
+}
+
+.skills-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.skills-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+.graph-image {
+    width: 100%;
+    height: auto;
+}
+
+/* Проекты */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15rem;
+    margin-bottom: 7rem;
+    position: relative;
+    width: 100%;
+    padding: 0 5%; /* Уменьшим отступы, чтобы картинки были больше */
+}
+
+.project {
+    position: relative;
+    width: 100%;
+}
+
+.project-image {
+    width: 180%; /* Увеличим размер картинок */
+    height: auto;
+    display: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Эффект при наведении - простое увеличение */
+.project-image:hover {
+    transform: translateX(-50%) scale(1.03); /* Немного увеличиваем, сохраняя центрирование */
+}
+
+/* По умолчанию показываем NOUT версии на больших экранах */
+.project-image--tablet {
+    display: block;
+}
+
+/* Для планшетов показываем LAPTOP версии */
+@media (max-width: 1024px) {
+    .project-image--tablet {
+        display: none;
+    }
+    .project-image--laptop {
+        display: block;
+    }
+    .projects {
+        padding: 0 8%;
+    }
+    .project-image {
+        width: 140%; /* Возвращаем прежний размер для планшетов */
+    }
+}
+
+/* Для мобильных показываем PHONE версии */
+@media (max-width: 768px) {
+    .project-image--laptop {
+        display: none;
+    }
+    .project-image--phone {
+        display: block;
+    }
+    .projects {
+        padding: 0 5%;
+        gap: 8rem;
+    }
+    .project-image {
+        max-width: 300px;
+    }
+}
+
+/* Подвал */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* Кнопка ESC */
+.esc-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.esc-icon {
+    width: 65px; /* Значительно увеличили размер */
+    height: auto;
+}
+
+.esc-button:hover {
+    transform: scale(1.05);
+}
+
+/* Адаптивные размеры для кнопки */
+@media (max-width: 1024px) {
+    .esc-icon {
+        width: 55px;
+    }
+}
+
+@media (max-width: 768px) {
+    .esc-icon {
+        width: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .esc-icon {
+        width: 40px;
+    }
+}
+
+/* Адаптивная верстка для страницы works */
+@media (max-width: 1024px) {
+    .page-title {
+        font-size: 6rem;
+    }
+
+    .components {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 4rem;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .header-text {
+        text-align: left;
+    }
+
+    .components {
+        grid-template-columns: 1fr;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 3rem;
+    }
+
+    .component-title {
+        font-size: 1.2rem;
+    }
+
+    .header-text {
+        font-size: 1rem;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0rem;
+    }
+
+    .project:nth-child(even) {
+        margin-top: 14rem;
+        margin-left: 0vw;
+    }
+
+    .project {
+        max-width: 140px;
     }
 } 
