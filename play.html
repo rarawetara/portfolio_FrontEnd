@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play - Im Mär.</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Gloria+Hallelujah&family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/chess-buttons.css" />
+    <link rel="stylesheet" href="styles/switches.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Шапка -->
+      <header class="header">
+        <a href="index.html" class="logo">Mär.</a>
+      </header>
+
+      <!-- Описание страницы -->
+      <div class="page-description">
+        <p class="description-text">
+          This is a <span class="highlight">playground</span> page where you can
+          explore different types of <span class="highlight">animations</span>,
+          <span class="highlight">interactive elements</span>, and
+          <span class="highlight">creative components</span>. Feel free to
+          click, toggle, and play with everything!
+        </p>
+      </div>
+
+      <!-- Основной контент -->
+      <main class="main">
+        <!-- Секция с 3D анимацией -->
+        <section class="animation-section">
+          <h2 class="section-title">3D Sphere Animation</h2>
+          <div class="section-subtitle">
+            Interactive WebGL Animation with Random Colors
+          </div>
+          <div id="app">
+            <div class="buttons">
+              <button type="button" id="colors-btn">Random colors</button>
+            </div>
+            <canvas id="webgl-canvas"></canvas>
+          </div>
+        </section>
+
+        <!-- Секция с трекером денег -->
+        <section class="tracker-section">
+          <h2 class="section-title">Money Tracker Design</h2>
+          <div class="section-subtitle">
+            Modern UI Components for Finance App
+          </div>
+          <div class="tracker-container">
+            <!-- Верхняя панель -->
+            <div class="app-header">
+              <div class="user-info">
+                <div class="user-avatar">
+                  <img
+                    src="https://ui-avatars.com/api/?name=AJ&background=0D8ABC&color=fff"
+                    alt="AJ"
+                  />
+                </div>
+                <div class="user-name">Anthony Jones</div>
+              </div>
+              <div class="header-actions">
+                <button class="icon-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button class="icon-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Основной скроллируемый контент -->
+            <div class="main-content">
+              <!-- Карточка с балансом -->
+              <div class="balance-card">
+                <div class="card-label">Current Balance</div>
+                <div class="balance-amount">$13,528.31</div>
+                <div class="card-details">
+                  <div class="card-number">**** **** **** 4242</div>
+                  <div class="card-type">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"
+                        stroke-width="2"
+                      />
+                      <path d="M1 10h22" stroke-width="2" />
+                    </svg>
+                    VISA
+                  </div>
+                </div>
+              </div>
+
+              <!-- Статистика -->
+              <div class="stats">
+                <div class="stat-card">
+                  <div class="stat-value">$2,459.50</div>
+                  <div class="stat-label">Monthly Expenses</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value">+$3,586.75</div>
+                  <div class="stat-label">Monthly Income</div>
+                </div>
+              </div>
+
+              <!-- Быстрые действия -->
+              <div class="quick-actions">
+                <button class="action-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M19 9l-7 7-7-7" stroke-width="2" />
+                  </svg>
+                  Send
+                </button>
+                <button class="action-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 5v14M5 12h14" stroke-width="2" />
+                  </svg>
+                  Request
+                </button>
+                <button class="action-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      stroke-width="2"
+                    />
+                  </svg>
+                  Bills
+                </button>
+              </div>
+
+              <!-- Фильтры -->
+              <div class="filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Income</button>
+                <button class="filter-btn">Expenses</button>
+                <button class="filter-btn">Subscriptions</button>
+                <button class="filter-btn">Shopping</button>
+              </div>
+
+              <div class="search-bar">
+                <span class="search-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    stroke="currentColor"
+                    fill="none"
+                  >
+                    <path
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search transactions..."
+                />
+              </div>
+
+              <!-- Секция транзакций -->
+              <div class="transactions-section">
+                <div class="section-header">
+                  <h3>Recent Transactions</h3>
+                  <div class="sort-dropdown">
+                    <button class="sort-btn">
+                      Sort by
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M19 9l-7 7-7-7"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                    <div class="sort-menu">
+                      <div class="sort-option" data-sort="date">Date</div>
+                      <div class="sort-option" data-sort="amount">Amount</div>
+                      <div class="sort-option" data-sort="name">Name</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="transaction-list">
+                  <div class="transaction">
+                    <div class="icon-container">
+                      <div class="icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path d="M3 3h18v18H3z" stroke-width="2" />
+                          <path
+                            d="M9 12h6M12 9v6"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <button class="close-btn">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M12 4L4 12M4 4l8 8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="details">
+                      <div class="title-container">
+                        <div class="title">Netflix</div>
+                        <div class="subtitle">Subscription</div>
+                      </div>
+                      <div class="amount">-$6.99</div>
+                    </div>
+                    <div class="transaction-details">
+                      <div class="transaction-id">#67593</div>
+                      <div class="transaction-date">September 26</div>
+                      <div class="transaction-time">12:01 am</div>
+                    </div>
+                    <div class="payment-details">
+                      <div class="payment-method">Paid Via Credit Card</div>
+                      <div class="payment-info">XXXX 9342 VISA</div>
+                    </div>
+                  </div>
+                  <div class="transaction">
+                    <div class="icon-container">
+                      <div class="icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M12 4a8 8 0 100 16 8 8 0 000-16z"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M15 10.5c-2.5-1-5.5-1-8 0M14 13c-2-0.5-4-0.5-6 0M13 15.5c-1.5-0.5-2.5-0.5-4 0"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <button class="close-btn">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M12 4L4 12M4 4l8 8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="details">
+                      <div class="title-container">
+                        <div class="title">Spotify</div>
+                        <div class="subtitle">Music</div>
+                      </div>
+                      <div class="amount">-$9.99</div>
+                    </div>
+                    <div class="transaction-details">
+                      <div class="transaction-id">#67594</div>
+                      <div class="transaction-date">September 25</div>
+                      <div class="transaction-time">11:30 am</div>
+                    </div>
+                    <div class="payment-details">
+                      <div class="payment-method">Paid Via PayPal</div>
+                      <div class="payment-info">spotify@email.com</div>
+                    </div>
+                  </div>
+                  <div class="transaction">
+                    <div class="icon-container">
+                      <div class="icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M5 17h14M8 17V7l8 5-8 5"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <button class="close-btn">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M12 4L4 12M4 4l8 8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="details">
+                      <div class="title-container">
+                        <div class="title">Uber</div>
+                        <div class="subtitle">Transport</div>
+                      </div>
+                      <div class="amount">-$24.50</div>
+                    </div>
+                    <div class="transaction-details">
+                      <div class="transaction-id">#67595</div>
+                      <div class="transaction-date">September 24</div>
+                      <div class="transaction-time">3:45 pm</div>
+                    </div>
+                    <div class="payment-details">
+                      <div class="payment-method">Paid Via Credit Card</div>
+                      <div class="payment-info">XXXX 9342 VISA</div>
+                    </div>
+                  </div>
+                  <div class="transaction">
+                    <div class="icon-container">
+                      <div class="icon">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M18 8h-1V6c0-2-2-3-5-3S7 4 7 6v2H6a2 2 0 00-2 2v1c0 3 2 4 4 5v4a2 2 0 002 2h4a2 2 0 002-2v-4c2-1 4-2 4-5v-1a2 2 0 00-2-2z"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <button class="close-btn">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M12 4L4 12M4 4l8 8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="details">
+                      <div class="title-container">
+                        <div class="title">Starbucks</div>
+                        <div class="subtitle">Coffee</div>
+                      </div>
+                      <div class="amount">-$5.75</div>
+                    </div>
+                    <div class="transaction-details">
+                      <div class="transaction-id">#67596</div>
+                      <div class="transaction-date">September 24</div>
+                      <div class="transaction-time">9:15 am</div>
+                    </div>
+                    <div class="payment-details">
+                      <div class="payment-method">Paid Via Apple Pay</div>
+                      <div class="payment-info">iPhone 14 Pro</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция с кнопками -->
+        <section class="chess-buttons-section">
+          <h2 class="section-title">Interactive Buttons</h2>
+          <div class="section-subtitle">
+            Collection of Custom Button Designs
+          </div>
+          <div class="chess-buttons">
+            <button class="chess-btn">Rounded Gradient</button>
+            <button class="chess-btn">Shadow Depth</button>
+            <button class="chess-btn">Embossed Effect</button>
+            <button class="chess-btn">Press Animation</button>
+            <button class="chess-btn">Perspective Effect</button>
+            <button class="chess-btn button-offset">Offset Effect</button>
+          </div>
+        </section>
+
+        <!-- Секция со свитчерами -->
+        <section class="switches-section">
+          <h2 class="section-title">Custom Switches</h2>
+          <div class="section-subtitle">
+            Collection of Modern Toggle Switches
+          </div>
+          <div class="switches-grid">
+            <label class="switch-wrapper plane-wrapper">
+              <div class="plane-switch">
+                <input type="checkbox" />
+                <div>
+                  <span class="street-middle"></span>
+                  <span class="cloud"></span>
+                  <span class="cloud two"></span>
+                  <div>
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="switch-label">Day & Night</span>
+            </label>
+            <label class="switch-wrapper heart-wrapper">
+              <div class="love">
+                <input id="heart-switch" type="checkbox" />
+                <label class="love-heart" for="heart-switch">
+                  <i class="left"></i>
+                  <i class="right"></i>
+                  <i class="bottom"></i>
+                  <div class="round"></div>
+                </label>
+              </div>
+              <span class="switch-label">Love Switch</span>
+            </label>
+            <label class="switch-wrapper sphere-wrapper">
+              <div class="toggle">
+                <div class="toggle__wrapper">
+                  <input type="checkbox" />
+                  <div class="toggle__bg">
+                    <div class="toggle__sphere">
+                      <div class="toggle__sphere-bg"></div>
+                      <div class="toggle__sphere-overlay"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="switch-label">Sphere Switch</span>
+            </label>
+            <label class="switch-wrapper rotate-wrapper">
+              <div class="checkbox">
+                <input type="checkbox" />
+                <div class="checkbox-inner">
+                  <label></label>
+                  <span></span>
+                </div>
+                <div class="checkbox__on">ON</div>
+                <div class="checkbox__off">OFF</div>
+              </div>
+              <span class="switch-label">Rotate Switch</span>
+            </label>
+            <label class="switch-wrapper lamp-wrapper">
+              <input class="l" type="checkbox" />
+              <span class="switch-label">Lamp Switch</span>
+            </label>
+            <label class="switch-wrapper like-wrapper">
+              <input class="peer hidden" type="checkbox" />
+              <div class="like-button group">
+                <div class="like-text">LIKE</div>
+                <svg
+                  class="like-icon"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                  />
+                </svg>
+              </div>
+              <span class="switch-label">Like Button</span>
+            </label>
+            <label class="switch-wrapper yinyang-wrapper">
+              <div class="switch">
+                <input type="checkbox" />
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="switcher"></div>
+              </div>
+              <span class="switch-label">Yin Yang Switch</span>
+            </label>
+            <label class="switch-wrapper start-wrapper">
+              <input id="start-checkbox" type="checkbox" />
+              <label class="start-switch" for="start-checkbox">
+                <svg viewBox="0 0 448 512" class="svg">
+                  <path
+                    d="M320 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM125.7 175.5c9.9-9.9 23.4-15.5 37.5-15.5c1.9 0 3.8 .1 5.6 .3L137.6 254c-9.3 28 1.7 58.8 26.8 74.5l86.2 53.9-25.4 88.8c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l28.7-100.4c5.9-20.6-2.6-42.6-20.7-53.9L238 299l30.9-82.4 5.1 12.3C289 264.7 323.9 288 362.7 288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H362.7c-12.9 0-24.6-7.8-29.5-19.7l-6.3-15c-14.6-35.1-44.1-61.9-80.5-73.1l-48.7-15c-11.1-3.4-22.7-5.2-34.4-5.2c-31 0-60.8 12.3-82.7 34.3L57.4 153.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l23.1-23.1zM91.2 352H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h69.6c19 0 36.2-11.2 43.9-28.5L157 361.6l-9.5-6c-17.5-10.9-30.5-26.8-37.9-44.9L91.2 352z"
+                  ></path>
+                </svg>
+                Start
+              </label>
+              <span class="switch-label">Start Switch</span>
+            </label>
+            <label class="switch-wrapper button3d-wrapper">
+              <div class="container3d">
+                <div class="inner-ring">
+                  <div class="button">
+                    <svg
+                      class="heart"
+                      viewBox="0 0 24 24"
+                      height="36"
+                      width="36"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20.205 4.791a5.938 5.938 0 0 0-4.209-1.754A5.906 5.906 0 0 0 12 4.595a5.904 5.904 0 0 0-3.996-1.558 5.942 5.942 0 0 0-4.213 1.758c-2.353 2.363-2.352 6.059.002 8.412L12 21.414l8.207-8.207c2.354-2.353 2.355-6.049-.002-8.416z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="switch-label">3D Button</span>
+            </label>
+            <label class="switch-wrapper mask-button-wrapper">
+              <button class="mask-button">
+                <span>PLAY NOW</span>
+              </button>
+              <span class="switch-label">Mask Button</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Секция с карточками -->
+        <section class="cards-section">
+          <h2 class="section-title">Interactive Cards</h2>
+          <div class="section-subtitle">Hover to Expand</div>
+          <div class="card">
+            <p><span>Design</span></p>
+            <p><span>Create</span></p>
+            <p><span>Develop</span></p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Подвал -->
+      <footer class="footer">
+        <a href="index.html" class="esc-button">
+          <img src="media_portfolio/esc.png" alt="ESC" class="esc-icon" />
+        </a>
+      </footer>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

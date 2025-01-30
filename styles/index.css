@@ -3,7 +3,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 6rem;
     background-color: var(--color-white);
     overflow-x: hidden;
 }
@@ -320,6 +320,27 @@
     .graph-image {
         max-width: 100%;
     }
+
+    .about-title {
+        font-size: 6rem;
+    }
+
+    /* Сохраняем сетку 2x2 но уменьшаем отступы */
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .about-text {
+        padding-right: 1rem;
+    }
+
+    .expertise {
+        padding-left: 1rem;
+    }
+
+    .resume-img, .certificate-img {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -442,6 +463,28 @@
     .component:nth-child(2) {
         max-width: 300px;
     }
+
+    .about-title {
+        font-size: 4rem;
+    }
+
+    /* Сохраняем сетку 2x2 */
+    .about-content {
+        gap: 1rem;
+    }
+
+    .hello-text, .expertise-title {
+        font-size: 1.5rem;
+    }
+
+    .description, .expertise-list li {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .expertise-list li {
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -521,6 +564,51 @@
     .project-image {
         width: 80%;
     }
+
+    .about-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    /* На мобильных делаем одну колонку */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-text {
+        grid-column: 1;
+        grid-row: 1;
+        padding-right: 0;
+    }
+
+    .resume {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .certificate {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .expertise {
+        grid-column: 1;
+        grid-row: 4;
+        padding-left: 0;
+    }
+
+    .hello-text, .expertise-title {
+        font-size: 1.25rem;
+    }
+
+    .description, .expertise-list li {
+        font-size: 0.9rem;
+    }
+
+    .expertise-list li {
+        padding-left: 1rem;
+    }
 }
 
 @media (max-width: 360px) {
@@ -559,6 +647,22 @@
 
     .project {
         max-width: 120px;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        gap: 1rem;
+    }
+
+    .hello-text, .expertise-title {
+        font-size: 1.1rem;
+    }
+
+    .description, .expertise-list li {
+        font-size: 0.85rem;
     }
 }
 
@@ -686,10 +790,31 @@
     margin-bottom: 4rem;
 }
 
+/* Компонент Part coder */
+.component:first-child {
+    grid-column: 1;
+    justify-self: start;
+    max-width: 300px;
+}
+
+/* Центральный график */
+.component:nth-child(2) {
+    grid-column: 2;
+    justify-self: center;
+}
+
+/* Компонент Part designer */
+.component:last-child {
+    grid-column: 3;
+    justify-self: end;
+    max-width: 300px;
+}
+
 .component {
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0rem;
+    align-items: center;
 }
 
 .component-title {
@@ -802,49 +927,56 @@
     }
 }
 
-/* Подвал */
+/* Обновляем стили для footer и esc-button */
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     padding: 2rem 0;
 }
 
-/* Кнопка ESC */
 .esc-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    background: none;
     border: none;
-    border-radius: 5px;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .esc-icon {
-    width: 65px; /* Значительно увеличили размер */
+    width: 65px;
     height: auto;
 }
 
 .esc-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-/* Адаптивные размеры для кнопки */
-@media (max-width: 1024px) {
+/* Адаптивные стили для ESC кнопки */
+@media (max-width: 768px) {
+    .esc-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
     .esc-icon {
         width: 55px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+    .esc-button {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
     .esc-icon {
         width: 45px;
-    }
-}
-
-@media (max-width: 480px) {
-    .esc-icon {
-        width: 40px;
     }
 }
 
@@ -855,7 +987,26 @@
     }
 
     .components {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        max-width: 800px;
+        margin: 0 auto 4rem;
+    }
+
+    .component:first-child {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .component:nth-child(2) {
+        grid-column: 1;
+        justify-self: center;
+        max-width: 500px;
+    }
+
+    .component:last-child {
+        grid-column: 1;
+        justify-self: end;
     }
 
     .projects {
@@ -878,7 +1029,17 @@
     }
 
     .components {
-        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 100%;
+    }
+
+    .component:first-child,
+    .component:last-child {
+        max-width: 250px;
+    }
+
+    .component:nth-child(2) {
+        max-width: 400px;
     }
 
     .projects {
@@ -913,4 +1074,2539 @@
     .project {
         max-width: 140px;
     }
-} 
+
+    .components {
+        gap: 1.5rem;
+    }
+
+    .component:first-child,
+    .component:last-child {
+        max-width: 200px;
+    }
+
+    .component:nth-child(2) {
+        max-width: 300px;
+    }
+}
+
+/* Обновляем стили для страницы about */
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    color: var(--color-black);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.about-text {
+    grid-column: 1;
+    grid-row: 1;
+    padding-right: 2rem;
+}
+
+.hello-text {
+    font-family: var(--font-accent);
+    color: var(--color-pink);
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.resume {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.certificate {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.expertise {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 2rem;
+    padding-top: 13rem;
+}
+
+.resume-img,
+.certificate-img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+}
+
+.expertise-title {
+    font-family: var(--font-accent);
+    color: var(--color-pink);
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expertise-list li {
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.4;
+}
+
+.expertise-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-pink);
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .about-text {
+        padding-right: 1rem;
+    }
+
+    .expertise {
+        padding-left: 1rem;
+        
+    }
+}
+
+/* Маленькие планшеты и большие телефоны */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .about-text,
+    .resume,
+    .certificate,
+    .expertise {
+        grid-column: 1;
+        padding: 0;
+    }
+
+    .resume { grid-row: 2; }
+    .certificate { grid-row: 3; }
+    .expertise { grid-row: 4; }
+
+    .resume-img,
+    .certificate-img {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+    .about-content {
+        grid-template-columns: repeat(2, 1fr); /* Сохраняем сетку 2x2 */
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .about-text {
+        grid-column: 1;
+        grid-row: 1;
+        padding-right: 0.5rem;
+    }
+
+    .resume {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .certificate {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .expertise {
+        grid-column: 2;
+        grid-row: 2;
+        padding-left: 0.5rem;
+        
+    }
+
+    .resume-img,
+    .certificate-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Уменьшаем размеры текста */
+    .about-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 1rem;
+    }
+
+    .hello-text {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+    }
+
+    .expertise-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .expertise-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        padding-left: 1rem;
+        line-height: 1.3;
+    }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 360px) {
+    .about-content {
+        gap: 0.8rem;
+    }
+
+    .about-text {
+        padding-right: 0.4rem;
+    }
+
+    .expertise {
+        padding-left: 0.4rem;
+        padding-top: 4rem;
+    }
+
+    .about-title {
+        font-size: 1.8rem;
+    }
+
+    .hello-text,
+    .expertise-title {
+        font-size: 1.1rem;
+    }
+
+    .description,
+    .expertise-list li {
+        font-size: 0.85rem;
+    }
+}
+
+/* Обновленные стили для страницы play */
+.animation-section {
+    position: relative;
+    height: 80vh; /* Ограничиваем высоту секции */
+    margin: 2rem 0;
+    border-radius: 20px;
+    overflow: hidden; /* Ограничиваем анимацию внутри секции */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#app {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-family: "Montserrat", serif;
+    
+    border-radius: inherit;
+}
+
+.hero {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+#webgl-canvas {
+    position: absolute; /* Изменили с fixed на absolute */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.buttons {
+    position: absolute; /* Изменили с fixed на absolute */
+    width: 100%;
+    bottom: 15px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttons button {
+    font-family: "Montserrat", serif;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+    .animation-section {
+        height: 70vh;
+        margin: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .animation-section {
+        height: 60vh;
+        margin: 1rem 0;
+    }
+}
+
+/* Добавляем стили для трекера денег */
+.tracker-section {
+    padding: 2rem 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-black);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tracker-container {
+    background: #d8d8d875;
+    border-radius: clamp(16px, 4vw, 24px);
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Добавляем многослойные тени для большей объемности */
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.12),
+        0 30px 60px rgba(0, 0, 0, 0.08),
+        inset 0 -10px 30px rgba(255, 255, 255, 0.1),
+        inset 0 10px 30px rgba(255, 255, 255, 0.1);
+    /* Добавляем тонкую рамку для лучшего определения границ */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Добавляем небольшой градиент для усиления эффекта объема */
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(216, 216, 216, 0.45)
+    );
+    /* Добавляем backdrop-filter для эффекта матового стекла */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.list-header {
+    font-size: 20px;
+    font-weight: 500;
+    color: #18181b;
+    margin-bottom: 24px;
+    padding-left: 12px;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.transaction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.transaction:hover {
+    background: #f4f4f5;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    width: clamp(32px, 8vw, 40px);
+    height: clamp(32px, 8vw, 40px);
+    background: #18181b;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    width: 100%;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title {
+    font-weight: 500;
+    color: #18181b;
+}
+
+.subtitle {
+    font-size: clamp(12px, 3vw, 14px);
+    color: #71717a;
+}
+
+.amount {
+    font-weight: 500;
+    color: #71717a;
+}
+
+/* Адаптивная верстка для трекера */
+@media (max-width: 768px) {
+    .tracker-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        margin-bottom: 1.5rem;
+    }
+
+    .list-header {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Добавьте эти стили для анимации */
+.transaction {
+    /* ... существующие стили ... */
+    position: relative;
+}
+
+.transaction.expanded {
+    flex-direction: column;
+    align-items: flex-start;
+    background: #ffffff;
+}
+
+.transaction.expanded .transaction-details, 
+.transaction.expanded .payment-details {
+    display: flex;
+}
+
+.transaction.expanded .icon-container {
+    width: 100%;
+}
+
+.transaction.expanded .close-btn {
+    display: flex;
+}
+
+.transaction-details, 
+.payment-details {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    color: #71717a;
+    border-top: 1px dotted #71717a;
+    padding-top: 6px;
+    width: 100%;
+}
+
+.close-btn {
+    display: none;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f4f4f5;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Анимации */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        margin-top: 30px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* View Transitions API */
+::view-transition-group(*) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+    height: 100%;
+}
+
+/* Специальные анимации для разных состояний */
+html:active-view-transition-type(expand) {
+    &::view-transition-group(.transaction-details),
+    &::view-transition-group(.payment-details) {
+        animation-name: slide-up;
+        animation-duration: 0.5s;
+    }
+}
+
+html:active-view-transition-type(collapse) {
+    &::view-transition-group(.transaction-details),
+    &::view-transition-group(.payment-details) {
+        animation-name: fade-out;
+    }
+}
+
+::view-transition-group(.not-expanded) {
+    animation-name: fade-out;
+}
+
+/* Добавьте эти стили для разных категорий транзакций */
+.transaction:nth-child(2) .icon {
+    background: #1DB954; /* Spotify green */
+}
+
+.transaction:nth-child(3) .icon {
+    background: #276EF1; /* Uber blue */
+}
+
+.transaction:nth-child(4) .icon {
+    background: #006241; /* Starbucks green */
+}
+
+/* Эффект наведения для иконок */
+.icon {
+    transition: transform 0.3s ease;
+}
+
+.transaction:hover .icon {
+    transform: scale(1.1);
+}
+
+/* Улучшенные стили для деталей транзакции */
+.transaction-details,
+.payment-details {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.transaction-id {
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.payment-method {
+    font-weight: 500;
+}
+
+/* Стили для шапки */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 24px) 0;
+    background: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: clamp(32px, 8vw, 40px);
+    height: clamp(32px, 8vw, 40px);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-size: clamp(14px, 3.5vw, 16px);
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.icon-btn svg {
+    width: clamp(20px, 5vw, 24px);
+    height: clamp(20px, 5vw, 24px);
+}
+
+/* Стили для карточки с балансом */
+.balance-card {
+    background: var(--color-pink);
+    border-radius: clamp(16px, 4vw, 20px);
+    padding: clamp(16px, 4vw, 24px);
+    color: white;
+    margin-bottom: clamp(16px, 4vw, 24px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.balance-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-label {
+    font-size: clamp(12px, 3vw, 14px);
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 700;
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-number {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.card-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.card-type svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+}
+
+/* Стили для быстрых действий */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: clamp(8px, 2vw, 12px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+    position: relative;
+    z-index: 1;
+}
+
+.action-btn {
+    background: white;
+    border: none;
+    border-radius: clamp(12px, 3vw, 16px);
+    padding: clamp(12px, 3vw, 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.action-btn svg {
+    width: clamp(20px, 5vw, 24px);
+    height: clamp(20px, 5vw, 24px);
+    color: #1a1a1a;
+}
+
+/* Стили для секции транзакций */
+.transactions-section {
+    background: var(--color-white);
+    border-radius: clamp(16px, 4vw, 20px);
+    padding: clamp(16px, 4vw, 20px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.view-all {
+    background: none;
+    border: none;
+    color: #0061ff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 480px) {
+    .tracker-container {
+        padding: 16px;
+    }
+
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .action-btn {
+        padding: 12px;
+    }
+
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Стили для фильтров транзакций */
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.filters::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+.filter-btn {
+    background: var(--color-background);
+    border: none;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+    border-radius: clamp(16px, 4vw, 20px);
+    color: var(--color-text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--color-pink);
+    color: white;
+}
+
+/* Стили для поиска */
+.search-bar {
+    margin-bottom: clamp(16px, 4vw, 24px);
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 24px) clamp(12px, 3vw, 16px) clamp(40px, 10vw, 56px);
+    border: 1px solid #e5e5e5;
+    border-radius: clamp(16px, 4vw, 20px);
+    font-size: clamp(12px, 3vw, 14px);
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+}
+
+/* Стили для сортировки */
+.sort-dropdown {
+    position: relative;
+    margin-left: auto;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sort-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--color-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 10;
+    display: none;
+}
+
+.sort-menu.active {
+    display: block;
+}
+
+.sort-option {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sort-option:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Стили для статистики */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: clamp(8px, 2vw, 12px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.stat-card {
+    background: var(--color-background);
+    padding: clamp(12px, 3vw, 16px);
+    border-radius: clamp(12px, 3vw, 16px);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: clamp(18px, 4.5vw, 24px);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: clamp(10px, 2.5vw, 12px);
+    color: var(--color-text-light);
+}
+
+/* Обновляем стили для модального окна */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 320px);
+    max-width: 320px; /* Делаем более компактным */
+    background: var(--color-white);
+    border-radius: clamp(16px, 4vw, 20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Затемнение фона */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    padding: clamp(16px, 4vw, 20px);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal h3 {
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--color-text-light);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-pink);
+    transform: rotate(90deg);
+}
+
+.modal-input {
+    width: 100%;
+    padding: clamp(10px, 2.5vw, 12px) clamp(12px, 3vw, 16px);
+    margin-bottom: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: clamp(10px, 2.5vw, 12px);
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: clamp(12px, 3vw, 14px);
+    transition: all 0.3s ease;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.modal-btn.cancel {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+}
+
+.modal-btn.confirm {
+    background: var(--color-pink);
+    color: white;
+}
+
+/* Анимации для модального окна */
+.modal.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+}
+
+/* Стили для селекта в модальном окне */
+.modal select.modal-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Обновляем стили для транзакций */
+.transaction {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: clamp(12px, 3vw, 16px);
+    border-radius: clamp(16px, 4vw, 20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transaction:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.transaction.expanded {
+    background: var(--color-background);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}
+
+/* Обновляем стили для фильтров */
+.filters {
+    background: rgba(255, 255, 255, 0.05);
+    padding: clamp(6px, 1.5vw, 8px);
+    border-radius: clamp(16px, 4vw, 20px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.filter-btn {
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-pink);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.filter-btn:hover::before {
+    opacity: 0.1;
+}
+
+.filter-btn.active {
+    background: var(--color-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+}
+
+/* Обновляем стили для поиска */
+.search-bar {
+    position: relative;
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.search-input {
+    width: 100%;
+    padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 24px) clamp(12px, 3vw, 16px) clamp(40px, 10vw, 56px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: clamp(16px, 4vw, 20px);
+    font-size: clamp(12px, 3vw, 14px);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--color-pink);
+    box-shadow: 0 0 0 4px rgba(255, 192, 203, 0.2);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+    color: var(--color-pink);
+}
+
+/* Обновляем стили для статистики */
+.stat-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: clamp(12px, 3vw, 16px);
+    border-radius: clamp(12px, 3vw, 16px);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+    font-size: clamp(18px, 4.5vw, 24px);
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--color-pink), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Верхняя часть (шапка) - фиксированная */
+.app-header {
+    padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 24px) 0;
+    background: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+/* Основной контент - скроллируемый */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: clamp(12px, 3vw, 20px);
+    gap: clamp(12px, 2vw, 20px);
+    /* Стилизация скролла */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-pink) transparent;
+}
+
+/* Стили для скролла в WebKit браузерах */
+.main-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: var(--color-pink);
+    border-radius: 20px;
+    border: 2px solid transparent;
+}
+
+/* Карточка с балансом остается в потоке */
+.balance-card {
+    margin-bottom: clamp(16px, 4vw, 24px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Быстрые действия */
+.quick-actions {
+    margin-bottom: clamp(16px, 4vw, 24px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Секция транзакций */
+.transactions-section {
+    background: var(--color-white);
+    border-radius: clamp(16px, 4vw, 20px);
+    padding: clamp(16px, 4vw, 20px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+/* Список транзакций */
+.transaction-list {
+    max-height: none; /* Убираем ограничение высоты */
+}
+
+/* Анимация для новых транзакций */
+.transaction {
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 480px) {
+    .tracker-container {
+        height: calc(100vh - 120px); /* Учитываем отступы */
+        border-radius: clamp(20px, 4vw, 20px) clamp(20px, 4vw, 20px) 0 0; /* Скругляем только верхние углы на мобильных */
+    }
+}
+
+@media (min-width: 1200px) {
+    .tracker-container {
+        max-width: 450px;
+        height: 700px;
+    }
+    
+    .balance-amount {
+        font-size: 36px;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+    }
+}
+
+/* Для очень высоких экранов */
+@media (min-height: 1000px) {
+    .tracker-container {
+        height: 800px;
+    }
+}
+
+/* Для маленьких экранов */
+@media (max-height: 600px) {
+    .tracker-container {
+        height: 95vh;
+    }
+    
+    .stats, .quick-actions {
+        margin-bottom: 12px;
+    }
+}
+
+/* Медиа-запросы для разных устройств */
+
+/* Маленькие мобильные устройства */
+@media (max-width: 320px) {
+    .tracker-container {
+        border-radius: 0;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .balance-amount {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+}
+
+/* Мобильные устройства */
+@media (min-width: 321px) and (max-width: 480px) {
+    .tracker-container {
+        height: calc(100vh - 60px);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+}
+
+/* Планшеты в портретной ориентации */
+@media (min-width: 481px) and (max-width: 768px) {
+    .tracker-container {
+        max-width: 90%;
+        height: min(800px, 90vh);
+        margin: 20px auto;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Планшеты в альбомной ориентации */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .tracker-container {
+        max-width: 700px;
+        height: min(700px, 80vh);
+    }
+
+    .stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Десктопы */
+@media (min-width: 1025px) {
+    .tracker-container {
+        max-width: 400px;
+        height: 700px;
+    }
+
+    .main-content {
+        padding: 24px;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1200px) {
+    .tracker-container {
+        max-width: 450px;
+        height: 680px;
+    }
+}
+
+/* Ориентация устройства */
+@media (orientation: landscape) and (max-height: 600px) {
+    .tracker-container {
+        height: 100vh;
+    }
+
+    .main-content {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .stats, .quick-actions {
+        margin-bottom: 8px;
+    }
+}
+
+/* Высокие экраны (iPhone X и подобные) */
+@media (min-height: 800px) and (max-width: 480px) {
+    .tracker-container {
+        height: calc(100vh - 80px);
+    }
+}
+
+
+
+/* Поддержка уменьшенного движения */
+@media (prefers-reduced-motion: reduce) {
+    .transaction,
+    .modal,
+    .action-btn,
+    .balance-card {
+        transition: none;
+    }
+}
+
+/* Поддержка высокой контрастности */
+@media (prefers-contrast: high) {
+    .transaction,
+    .stat-card,
+    .action-btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Стили для устройств с поддержкой hover */
+@media (hover: hover) {
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .transaction:hover {
+        transform: translateX(4px);
+    }
+}
+
+/* Стили для устройств без поддержки hover */
+@media (hover: none) {
+    .action-btn:active {
+        background: var(--color-background);
+    }
+
+    .transaction:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Контейнер для кнопок */
+.interactive-buttons {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    margin: 2rem 0;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* 1. Неоновая кнопка */
+.neon-button {
+    position: relative;
+    padding: 15px 30px;
+    color: var(--color-pink);
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.neon-button:hover {
+    background: var(--color-pink);
+    color: #050801;
+    box-shadow: 0 0 5px var(--color-pink),
+                0 0 25px var(--color-pink),
+                0 0 50px var(--color-pink),
+                0 0 200px var(--color-pink);
+}
+
+.neon-button span {
+    position: absolute;
+    display: block;
+}
+
+.neon-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-pink));
+}
+
+.neon-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color-pink));
+}
+
+.neon-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--color-pink));
+}
+
+.neon-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--color-pink));
+}
+
+/* 2. Жидкий переключатель */
+.liquid-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.liquid-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.liquid-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border-radius: 34px;
+    overflow: hidden;
+}
+
+.liquid-switch .liquid {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: var(--color-pink);
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+}
+
+.liquid-switch input:checked + .slider .liquid {
+    left: 0;
+}
+
+/* 3. Кнопка с градиентной границей */
+.gradient-border-button {
+    position: relative;
+    padding: 15px 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.gradient-border-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* 4. 3D Toggle Switch */
+.toggle-3d {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.toggle-3d input {
+    display: none;
+}
+
+.toggle-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    border-radius: 20px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.toggle-3d input:checked + .toggle-thumb {
+    transform: rotateY(180deg);
+}
+
+/* 5. Кнопка с частицами */
+.particle-button {
+    position: relative;
+    padding: 15px 30px;
+    background: transparent;
+    border: 2px solid var(--color-pink);
+    color: var(--color-pink);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle-button:hover .particles::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: var(--color-pink);
+    border-radius: 50%;
+    animation: particle 0.5s linear;
+}
+
+@keyframes particle {
+    0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -200%);
+        opacity: 0;
+    }
+}
+
+/* 6. Морфинг кнопка */
+.morph-button {
+    position: relative;
+    z-index: 1;
+}
+
+.morph-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 150%;
+    height: 150%;
+    background: var(--color-pink);
+    border-radius: 50%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+/* 7. Голографическая кнопка */
+.holographic-button {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.holographic-button::before {
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+}
+
+/* Стили для частиц */
+.particle {
+    position: absolute;
+    background: var(--color-pink);
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    pointer-events: none;
+}
+
+/* Контейнер для интерактивных элементов */
+.interactive-controls {
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    margin: 2rem 0;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Пульсирующая кнопка */
+.pulse-button {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.pulse-circle {
+    position: absolute;
+    inset: 0;
+    background: var(--color-pink);
+    border-radius: 50%;
+    animation: pulse 2s ease-out infinite;
+}
+
+.pulse-text {
+    position: relative;
+    color: white;
+    font-size: 1.2em;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 0.5; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Кибер-переключатель */
+.cyber-switch {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+}
+
+.cyber-slider {
+    position: absolute;
+    inset: 0;
+    background: #2a2a2a;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cyber-tracks {
+    position: absolute;
+    inset: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        #333 0px,
+        #333 2px,
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+.cyber-glow {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: var(--color-pink);
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    transition: 0.3s;
+    box-shadow: 0 0 20px var(--color-pink);
+}
+
+.cyber-switch input:checked + .cyber-slider .cyber-glow {
+    left: calc(100% - 36px);
+}
+
+/* Магнитная кнопка */
+.magnetic-button {
+    position: relative;
+    padding: 20px 40px;
+    background: transparent;
+    border: 2px solid var(--color-pink);
+    color: var(--color-pink);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.magnetic-content {
+    display: block;
+    transform: translateZ(0);
+}
+
+/* Glitch кнопка */
+.glitch-button {
+    position: relative;
+    padding: 20px 40px;
+    background: var(--color-pink);
+    border: none;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.glitch-text {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-pink);
+}
+
+.glitch-button:hover .glitch-text::before {
+    animation: glitch-1 0.4s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px, -2px);
+}
+
+.glitch-button:hover .glitch-text::after {
+    animation: glitch-2 0.4s linear infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(2px, 2px);
+}
+
+/* Плазма кнопка */
+.plasma-button {
+    position: relative;
+    padding: 20px 40px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.plasma-effect {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        var(--color-pink) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.plasma-button:hover .plasma-effect {
+    opacity: 1;
+}
+
+/* 3D Flip переключатель */
+.flip-switch {
+    perspective: 1000px;
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+.flip-front {
+    background: var(--color-pink);
+    color: white;
+}
+
+.flip-back {
+    background: #333;
+    color: white;
+    transform: rotateX(180deg);
+}
+
+.flip-switch input:checked + .flip-card {
+    transform: rotateX(180deg);
+}
+
+/* Звуковая волна */
+.wave-button {
+    position: relative;
+    padding: 20px 40px;
+    background: transparent;
+    border: 2px solid var(--color-pink);
+    color: var(--color-pink);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.wave-bars {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.wave-bars::before {
+    content: '';
+    width: 3px;
+    height: 100%;
+    background: var(--color-pink);
+    animation: wave 1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1); }
+}
+
+/* Адаптивные стили для money tracker */
+@media screen and (max-width: 1024px) {
+    .tracker-container {
+        width: 95%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    .balance-card {
+        padding: 24px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .filters {
+        overflow-x: auto;
+        padding-bottom: 8px;
+        margin: 16px 0;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tracker-container {
+        width: 100%;
+        height: calc(100vh - 32px);
+        border-radius: 20px 20px 0 0;
+        margin-bottom: 0;
+    }
+
+    .app-header {
+        padding: 16px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .balance-card {
+        padding: 20px;
+        margin: 16px;
+    }
+
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    .stats {
+        padding: 0 16px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .quick-actions {
+        padding: 0 16px;
+    }
+
+    .action-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .filters {
+        padding: 0 16px;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .search-bar {
+        margin: 16px;
+    }
+
+    .transactions-section {
+        margin: 16px;
+    }
+
+    .transaction {
+        padding: 12px;
+    }
+
+    .transaction.expanded {
+        padding: 16px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .amount {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tracker-container {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .app-header {
+        padding: 12px;
+    }
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .balance-card {
+        padding: 16px;
+        margin: 12px;
+    }
+
+    .balance-amount {
+        font-size: 24px;
+    }
+
+    .stats {
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .quick-actions {
+        padding: 0 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .action-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .action-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .filters {
+        padding: 0 12px;
+        gap: 6px;
+    }
+
+    .filter-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .search-bar {
+        margin: 12px;
+    }
+
+    .search-input {
+        padding: 8px 12px 8px 36px;
+        font-size: 14px;
+    }
+
+    .transactions-section {
+        margin: 12px;
+    }
+
+    .transaction {
+        padding: 10px;
+    }
+
+    .transaction.expanded {
+        padding: 14px;
+    }
+
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .amount {
+        font-size: 14px;
+    }
+
+    /* Модальные окна для мобильных */
+    .modal {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .modal-content {
+        padding: 16px;
+    }
+
+    .modal-header h3 {
+        font-size: 18px;
+    }
+
+    .modal-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modal-buttons {
+        gap: 8px;
+    }
+
+    .modal-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media screen and (max-width: 360px) {
+    .quick-actions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .action-btn {
+        padding: 6px;
+        font-size: 11px;
+    }
+
+    .action-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .stat-card {
+        padding: 10px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .transaction {
+        padding: 8px;
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Для высоких мобильных экранов (iPhone X и подобные) */
+@media screen and (min-height: 800px) and (max-width: 480px) {
+    .tracker-container {
+        height: calc(100vh - 80px);
+    }
+}
+
+/* Для ландшафтной ориентации на мобильных */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .tracker-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Базовые стили для трекера */
+.tracker-container {
+    background: #ffffff;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Шапка с профилем */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Карточка баланса */
+.balance-card {
+    background: var(--color-pink);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    margin: 20px 0;
+}
+
+.card-label {
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* Статистика */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Быстрые действия */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.action-btn {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.action-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: var(--color-pink);
+    color: white;
+}
+
+/* Поиск */
+.search-bar {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 15px;
+    background: #f5f5f5;
+    font-size: 14px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+/* Транзакции */
+.transactions-section {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.transaction {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background: #f5f5f5;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 480px) {
+    .tracker-container {
+        max-width: 350px;
+        border-radius: 20px 20px 0 0;
+        height: 100vh;
+        padding: 16px;
+    }
+
+    .balance-card {
+        padding: 20px;
+        margin: 16px 0;
+    }
+
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    .action-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+/* iPhone X и новее */
+@supports (padding: env(safe-area-inset-top)) {
+    .tracker-container {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Контейнер для интерактивных кнопок */
+.interactive-controls {
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    
+}
+
+/* Расположение элементов в шахматном порядке */
+.controls-grid > *:nth-child(3n + 2) {
+    transform: translateY(2rem);
+}
+
+.controls-grid > *:nth-child(3n + 3) {
+    transform: translateY(4rem);
+}
+
+/* Адаптивная верстка для кнопок */
+@media screen and (max-width: 768px) {
+    .controls-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .controls-grid > *:nth-child(3n + 2) {
+        transform: translateY(0);
+    }
+
+    .controls-grid > *:nth-child(3n + 3) {
+        transform: translateY(0);
+    }
+
+    /* Новый шахматный порядок для 2 колонок */
+    .controls-grid > *:nth-child(odd) {
+        transform: translateY(1.5rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .interactive-controls {
+        padding: 1rem;
+    }
+
+    .controls-grid {
+        gap: 1rem;
+    }
+
+    .controls-grid > *:nth-child(odd) {
+        transform: translateY(1rem);
+    }
+}

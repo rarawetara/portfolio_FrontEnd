@@ -1,0 +1,470 @@
+/* Общие стили для секции кнопок */
+.chess-buttons-section {
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: clamp(1rem, 3vw, 2rem);
+    margin: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.chess-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(3rem, 5vw, 4.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Кнопка 1 - Закругленный стиль с градиентом */
+.chess-btn:nth-child(1) {
+    background: linear-gradient(
+        45deg,
+        var(--color-pink) 0%,
+        var(--color-pink) 40%,
+        #ff99c8 60%,
+        var(--color-pink) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    border: none;
+    border-radius: 56px;
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: 600;
+    padding: clamp(16px, 2vw, 18px) clamp(24px, 3vw, 36px);
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease;
+    box-shadow: 
+        0 4px 15px rgba(229, 119, 165, 0.2),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: clamp(180px, 25vw, 250px);
+    transform: rotate(-8deg) translateX(15%) translateY(-15%) scale(1.1);
+    justify-self: center;
+}
+
+.chess-btn:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    transition: all 0.5s ease;
+}
+
+.chess-btn:nth-child(1):hover {
+    background-position: 0 0;
+    box-shadow: 
+        0 6px 20px rgba(229, 119, 165, 0.4),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    letter-spacing: 1px;
+}
+
+.chess-btn:nth-child(1):hover::before {
+    left: 100%;
+}
+
+.chess-btn:nth-child(1):active {
+    transform: translateY(1px);
+    box-shadow: 
+        0 2px 10px rgba(229, 119, 165, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Кнопка 2 - Объемный эффект */
+.chess-btn:nth-child(2) {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-black);
+    border-radius: 30px;
+    box-shadow: 
+        var(--color-black) 6px 6px 0 0,
+        rgba(0, 0, 0, 0.1) 10px 10px 20px;
+    color: var(--color-black);
+    cursor: pointer;
+    font-size: clamp(14px, 1.8vw, 16px);
+    padding: 0 clamp(20px, 2.5vw, 28px);
+    line-height: clamp(40px, 5vw, 50px);
+    transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    position: relative;
+    width: clamp(160px, 22vw, 220px);
+    transform: rotate(12deg) translateX(-25%) translateY(25%) scale(0.95);
+    justify-self: end;
+}
+
+.chess-btn:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.3)
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.chess-btn:nth-child(2):hover {
+    background-color: var(--color-gray);
+    transform: translate(-2px, -2px);
+    box-shadow: 
+        var(--color-black) 8px 8px 0 0,
+        rgba(0, 0, 0, 0.1) 12px 12px 20px;
+}
+
+.chess-btn:nth-child(2):hover::before {
+    opacity: 1;
+}
+
+.chess-btn:nth-child(2):active {
+    background-color: var(--color-gray);
+    transform: translate(4px, 4px);
+    box-shadow: 
+        var(--color-black) 2px 2px 0 0,
+        rgba(0, 0, 0, 0.1) 4px 4px 8px;
+    transition: all 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.chess-btn:nth-child(2):active::before {
+    opacity: 0.5;
+}
+
+/* Кнопка 3 - Объемная с тенями */
+.chess-btn:nth-child(3) {
+    background: var(--color-white);
+    border: none;
+    border-radius: 40em;
+    box-shadow: 
+        var(--color-pink) 0 -12px 6px inset,
+        rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: var(--color-black);
+    font-size: clamp(15px, 1.9vw, 17px);
+    font-weight: 700;
+    padding: clamp(14px, 1.8vw, 16px) clamp(22px, 2.8vw, 32px);
+    transition: all 0.2s ease;
+    width: clamp(170px, 23vw, 230px);
+    transform: rotate(-15deg) translateX(20%) translateY(-20%) scale(1.05);
+    justify-self: start;
+}
+
+.chess-btn:nth-child(3):hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    box-shadow: 
+        rgba(255, 255, 255, 0.3) 0 -12px 6px inset,
+        rgba(0, 0, 0, 0.1) 0 8px 16px;
+    transform: translateY(-2px);
+}
+
+/* Кнопка 4 - Перспективный эффект */
+.chess-btn:nth-child(4) {
+    background: linear-gradient(90deg, 
+        var(--color-pink) 0%, 
+        var(--color-pink) 50%, 
+        var(--color-white) 50%, 
+        var(--color-white) 100%) 100%/200% 100% no-repeat;
+    color: var(--color-black);
+    border: 2px solid var(--color-pink);
+    transform: rotate(10deg) translateX(-30%) translateY(15%) perspective(500px) rotateY(15deg);
+    font-weight: bold;
+    font-size: clamp(16px, 2vw, 18px);
+    padding: clamp(16px, 2vw, 18px) clamp(24px, 3vw, 36px);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: -5px 5px 15px rgba(229, 119, 165, 0.2);
+    width: clamp(190px, 26vw, 260px);
+    justify-self: center;
+}
+
+.chess-btn:nth-child(4):hover {
+    background-position: 0%;
+    transform: perspective(800px) rotateY(0deg);
+    color: var(--color-white);
+    box-shadow: 0 5px 20px rgba(229, 119, 165, 0.3);
+}
+
+.chess-btn:nth-child(4):active {
+    transform: perspective(800px) rotateY(0deg) translateY(2px);
+    box-shadow: 0 2px 10px rgba(229, 119, 165, 0.2);
+}
+
+/* Кнопка 5 - Эффект нажатия */
+.chess-btn:nth-child(5) {
+    position: relative;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
+    padding: clamp(14px, 1.8vw, 16px) clamp(22px, 2.8vw, 32px);
+    border-radius: 12px;
+    font-size: clamp(15px, 1.9vw, 17px);
+    color: var(--color-black);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 0 var(--color-pink);
+    width: clamp(175px, 24vw, 240px);
+    transform: rotate(-6deg) translateX(25%) translateY(-25%) scale(0.9);
+    justify-self: end;
+}
+
+.chess-btn:nth-child(5):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 var(--color-pink);
+}
+
+.chess-btn:nth-child(5):active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--color-pink);
+}
+
+/* Кнопка 6 - Offset эффект */
+.chess-btn.button-offset {
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: clamp(13px, 2vw, 16px) clamp(20px, 3vw, 30px);
+    outline: 0;
+    border: 1px solid var(--color-pink);
+    cursor: pointer;
+    position: relative;
+    background-color: var(--color-white);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transform: rotate(-8deg) translateX(20%) translateY(-10%);
+    justify-self: center;
+    width: clamp(160px, 22vw, 220px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-pink);
+}
+
+.chess-btn.button-offset:after {
+    content: "";
+    background-color: var(--color-pink);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.3;
+}
+
+.chess-btn.button-offset:hover {
+    color: var(--color-white);
+    background-color: var(--color-pink);
+    transform: rotate(-8deg) translateX(20%) translateY(-12%);
+    box-shadow: 0 5px 15px rgba(229, 119, 165, 0.3);
+}
+
+.chess-btn.button-offset:hover:after {
+    top: 0px;
+    left: 0px;
+    opacity: 0.6;
+}
+
+.chess-btn.button-offset:active {
+    transform: rotate(-8deg) translateX(20%) translateY(-8%);
+    box-shadow: 0 2px 8px rgba(229, 119, 165, 0.2);
+}
+
+/* Общие стили для всех кнопок */
+.chess-btn {
+    font-family: var(--font-accent);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent; /* Убираем подсветку на мобильных */
+    touch-action: manipulation; /* Улучшаем отклик на мобильных */
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .chess-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .chess-btn:nth-child(1) {
+        transform: rotate(-12deg) translateX(20%) translateY(-20%) scale(1.1);
+    }
+
+    .chess-btn:nth-child(2) {
+        transform: rotate(15deg) translateX(-30%) translateY(15%) scale(0.9);
+    }
+
+    .chess-btn:nth-child(3) {
+        transform: rotate(-18deg) translateX(25%) translateY(-25%) scale(1.05);
+    }
+
+    .chess-btn:nth-child(4) {
+        transform: rotate(20deg) translateX(-35%) translateY(20%) perspective(500px) rotateY(15deg);
+    }
+
+    .chess-btn:nth-child(5) {
+        transform: rotate(-10deg) translateX(30%) translateY(-15%) scale(0.95);
+    }
+}
+
+@media (max-width: 768px) {
+    .chess-buttons-section {
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .chess-buttons {
+        gap: 3.5rem;
+    }
+
+    .chess-btn:nth-child(1) {
+        transform: rotate(-15deg) translateX(25%) translateY(-10%) scale(1.05);
+    }
+
+    .chess-btn:nth-child(2) {
+        transform: rotate(18deg) translateX(-35%) translateY(20%) scale(0.9);
+    }
+
+    .chess-btn:nth-child(3) {
+        transform: rotate(-20deg) translateX(30%) translateY(-25%) scale(1);
+    }
+
+    .chess-btn:nth-child(4) {
+        transform: rotate(25deg) translateX(-40%) translateY(15%) perspective(500px) rotateY(15deg);
+    }
+
+    .chess-btn:nth-child(5) {
+        transform: rotate(-12deg) translateX(35%) translateY(-20%) scale(0.95);
+    }
+
+    /* Увеличиваем область касания для мобильных */
+    .chess-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Убираем hover эффекты на мобильных */
+    @media (hover: none) {
+        .chess-btn:hover {
+            transform: none;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .chess-buttons-section {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .chess-buttons {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        padding: 3rem 1rem;
+        max-width: 100%;
+    }
+
+    /* Уменьшаем размеры кнопок */
+    .chess-btn {
+        width: clamp(140px, 55vw, 180px) !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+    }
+
+    /* Более аккуратное хаотичное расположение */
+    .chess-btn:nth-child(1) {
+        transform: rotate(-12deg) translateX(15%);
+        justify-self: start;
+    }
+
+    .chess-btn:nth-child(2) {
+        transform: rotate(10deg) translateX(-15%);
+        justify-self: end;
+    }
+
+    .chess-btn:nth-child(3) {
+        transform: rotate(-8deg) translateX(10%);
+        justify-self: center;
+    }
+
+    .chess-btn:nth-child(4) {
+        transform: rotate(12deg) translateX(-12%);
+        justify-self: start;
+    }
+
+    .chess-btn:nth-child(5) {
+        transform: rotate(-10deg) translateX(12%);
+        justify-self: end;
+    }
+
+    .chess-btn.button-offset {
+        transform: rotate(-7deg) translateX(10%);
+    }
+}
+
+@media (max-width: 360px) {
+    .chess-buttons {
+        padding: 2rem 0.5rem;
+        gap: 3rem;
+    }
+
+    .chess-btn {
+        width: clamp(120px, 45vw, 160px) !important;
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+    }
+
+    /* Еще меньше смещения для маленьких экранов */
+    .chess-btn:nth-child(1) { 
+        transform: rotate(-8deg) translateX(8%);
+    }
+    .chess-btn:nth-child(2) { 
+        transform: rotate(6deg) translateX(-8%);
+    }
+    .chess-btn:nth-child(3) { 
+        transform: rotate(-5deg) translateX(5%);
+    }
+    .chess-btn:nth-child(4) { 
+        transform: rotate(8deg) translateX(-8%);
+    }
+    .chess-btn:nth-child(5) { 
+        transform: rotate(-6deg) translateX(6%);
+    }
+
+    .chess-btn.button-offset {
+        transform: rotate(-5deg) translateX(6%);
+    }
+}
+
+/* Учитываем предпочтения по движению */
+@media (prefers-reduced-motion: reduce) {
+    .chess-btn {
+        transition: none !important;
+    }
+}
+
+/* Анимации при наведении с сохранением поворота */
+.chess-btn:hover {
+    transform: scale(1.05) !important;
+}
+
+/* Анимации при нажатии */
+.chess-btn:active {
+    transform: scale(0.95) !important;
+}
+
+/* Для сенсорных устройств */
+@media (hover: none) {
+    .chess-btn:active {
+        transform: scale(0.95) !important;
+        transition: transform 0.2s ease;
+    }
+}
